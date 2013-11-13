@@ -2,6 +2,7 @@
 <div class="container">
  
 <div class="logo"></div>
+<?php echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'),array('class' => 'btn btn-small logout')); ?>
 <div class="navbar ex-nav ">
   <div class="navbar-inner">
     <ul class="nav">

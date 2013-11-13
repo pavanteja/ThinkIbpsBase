@@ -6,11 +6,15 @@ class DashboardController extends AppController
 
 	var $helpers = array('Html', 'Form');
 
+public function beforeFilter() {
+        parent::beforeFilter();
+       
+    }
 
 
-
-public function index($id=null)
+public function index()
 {
+$id=$this->Auth->user('id');
 $this->loadModel('Exam');
 $this->Exam->recursive = -1;
 $completedX=$this->Exam->find('count',array('conditions' => array('Exam.users_id =' => $id,'Exam.marks <>'=>null)));

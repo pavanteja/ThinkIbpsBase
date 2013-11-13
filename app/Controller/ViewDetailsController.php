@@ -5,7 +5,10 @@ class ViewDetailsController extends AppController
 
 
 var $helpers = array('Html', 'Form');
-
+public function beforeFilter() {
+        parent::beforeFilter();
+       
+    }
 
 public function index($id=null)
 {

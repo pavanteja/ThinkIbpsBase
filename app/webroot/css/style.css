@@ -3,6 +3,12 @@
 background: rgba(0, 0, 0, 0) !important;
 
 }
+.logout
+{
+float: right;
+margin-top: -64px;
+margin-right: 10px;
+}
 .popnv .badge {
 color:black;
 }

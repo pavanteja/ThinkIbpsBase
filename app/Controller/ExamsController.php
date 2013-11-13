@@ -3,9 +3,13 @@ class ExamsController extends AppController
 {
 	
 
+public function beforeFilter() {
+        parent::beforeFilter();
+       $this->Auth->allow('submit');
+    }
 
-
-	function index($id=null) {
+	function index() {
+	$id=$this->Auth->user('id');
 	if(!isset($id))
 	{
 	$this->set('exams','ok');
