@@ -10,7 +10,7 @@
 <div class="row-fluid">
 <div class="span9 q_single_question q_sections1 bg">
 <div class="btn-groupp" data-toggle="buttons-radio">
-  <button type="button" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Aptitude" class="btnm ttp apt">Aptitude</button>
+  <button type="button" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Aptitude" class="btnm ttp apt rbactive">Aptitude</button>
   <button type="button" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="General Awareness" class="btnm ttp ga">General Awareness</button>
   <button type="button" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Reasoning" class="btnm ttp res">Reasoning</button>
   <button type="button" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="English" class="btnm ttp eng">English</button>
@@ -72,7 +72,7 @@
 <div class="q_single_question bg btncenter" style="margin-top: -12px;">
 
 <input type="button" href="#profileModal" class="btnrp prfm hw" data-toggle="modal" value="Profile" />
-<input type="button" value="Submit" class="btnrp submit hw"/>
+<input type="button" value="Submit" href="#exsumModal" data-toggle="modal" class="btnrp subexsum hw"/>
 </div>
 </div>
 
@@ -116,14 +116,89 @@
     <button class="btnl sandn" data-dismiss="modal" aria-hidden="true">Back</button>
   </div>
 </div>
+<div id="exsumModal" style="width:900px;margin-left:-450px;" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 id="myModalLabel">Exam Summary</h4>
+  </div>
+  <div class="modal-body">
+   <table class="examsummarytbl table"  cellspacing="0"  align="center" style="margin-top:5%;width: 70%;">
+   <tbody>
+   <tr><th>Section Name</th><th>No. of Questions</th><th>Answered</th><th>Not Answered</th><th>Marked for Review</th><th>Not Visited</th></tr>
+   <tr><td>Aptitude</td><td >50</td><td >0</td><td >1</td><td >0</td><td >49</td></tr>
+   <tr><td>General Awareness</td><td >50</td><td >0</td><td >1</td><td >0</td><td >49</td></tr>
+   <tr><td>Reasoning</td><td >50</td><td >0</td><td >1</td><td >0</td><td >49</td></tr>
+   <tr><td>English</td><td >50</td><td >0</td><td >1</td><td >0</td><td >49</td></tr>
+   <tr><td>Computer Awareness</td><td >50</td><td >0</td><td >1</td><td >0</td><td >49</td></tr>
+   </tbody></table>
+  </div>
+  <div class="modal-footer">
+    <button class="btnl sandn" data-dismiss="modal" aria-hidden="true">Back</button><button class="btnl submit sandn" aria-hidden="true">Submit</button>
+  </div>
+</div>
 <div id="insModal" style="width:900px;margin-left:-450px;" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h4 id="myModalLabel">INSTRUCTION FOR ST (CWE P.O.)</h4>
   </div>
   <div class="modal-body">
-    <div id="divInstructions" unselectable="on"><p unselectable="on">1. Read carefully the instructions before starting the test.you can read the instructions in between the exam after clicking the <strong unselectable="on">"INSTRUCTION BUTTON".</strong><br unselectable="on">2. You have <strong unselectable="on">120 minutes</strong> to complete the test.<br unselectable="on">3. The test contains a total of <strong unselectable="on">200 questions</strong>.<br unselectable="on">4. There is only one correct answer to each question. Click on the most appropriate option to mark it as your answer.<br unselectable="on">5. You will be awarded <strong unselectable="on">1 marks</strong> for each correct answer.<br unselectable="on">6. There is <strong unselectable="on">0.25 negative</strong> marks for each wrong answer.<br unselectable="on">7. According to your selection of questions it will change the colour in the boxes at the right side window, these colours will help you to identify the required group of questions.<br unselectable="on">8. You can unmark your answer by clicking on the <strong unselectable="on">"CLEAR RESPONSE"</strong> Option.<br unselectable="on">9. You can mark a question for reviewing it later by clicking on the “marked &amp; review” button.<br unselectable="on">10. You can use the <strong unselectable="on">"FILTER BUTTON"</strong> to select your choices individually according to your given answers.<br unselectable="on">11. A Number list of all questions appears at the right hand side of the window. You can access the questions in any order within a section or across sections by clicking on the question number given on the number list.<br unselectable="on">12. You can use rough sheets while taking the test. Do not use calculators, log tables, dictionaries, or any other printed/online reference material during the test.<br unselectable="on">13. Do not click the button <strong unselectable="on">“SUBMIT TEST”</strong> before completing the test. A test once submitted cannot be resumed.<br unselectable="on">14.&nbsp; If your system gets hanged or you face any other problem in internet connectivity, - "Don't Worry, Kindly close the window of the Test and you can resume your test from where you had left."<br unselectable="on">15. Once clicked on the <strong unselectable="on">(SUBMIT TEST)</strong> button, You <strong unselectable="on">Cannot REDO</strong> this Speed Test.....</p>
-<p unselectable="on">&nbsp;</p></div>
+   <div id="sysInstText1" style=""><p align="center"><strong><span><b>Please read the following instructions carefully</b></span></strong></p>
+<p><strong><u>General Instructions:</u></strong> <br></p>
+<ol>
+<li>Total of 30 minutes duration will be given to attempt all the questions</li>
+<li>The clock has been set at the server and the countdown timer at the top right corner of your screen will display the time remaining for you to complete the exam. When the clock runs out the exam ends by default - you are not required to end or submit your exam. </li>
+<li>The question palette at the right of screen shows one of the following statuses of each of the questions numbered: 
+<table>
+<tbody>
+<tr>
+<td class="insico insnv">1</td>
+<td>You have not visited the question yet.</td></tr></tbody></table>
+<table>
+<tbody>
+<tr>
+<td class="insico insna">3</td>
+<td>You have not answered the question.</td></tr></tbody></table>
+<table>
+<tbody>
+<tr>
+<td class="insico insa">5</td>
+<td>You have answered the question. </td></tr></tbody></table>
+<table>
+<tbody>
+<tr>
+<td class="insico insnar">7</td>
+<td>You have NOT answered the question but have marked the question for review.</td></tr></tbody></table>
+<table>
+<tbody>
+<tr>
+<td class="insico insar"> 9</td>
+<td>You have answered the question but marked it for review. </td></tr></tbody></table></li>
+<li style="LIST-STYLE-TYPE: none">The Marked for Review status simply acts as a reminder that you have set to look at the question again. <font color="red"><i>If an answer is selected for a question that is Marked for Review, the answer will be considered in the final evaluation.</i></font></li></ol>
+<p><br><b><u>Navigating to a question : </u></b></p>
+<ol start="4">
+<li>To select a question to answer, you can do one of the following: 
+<ol type="a">
+<li>Click on the question number on the question palette at the right of your screen to go to that numbered question directly. Note that using this option does NOT save your answer to the current question. </li>
+<li>Click on Save and Next to save answer to current question and to go to the next question in sequence.</li>
+<li>Click on Mark for Review and Next to save answer to current question, mark it for review, and to go to the next question in sequence.</li></ol></li>
+<li>You can view the entire paper by clicking on the <b>Question Paper</b> button.</li></ol>
+<p><br><b><u>Answering questions : </u></b></p>
+<ol start="6">
+<li>For multiple choice type question : 
+<ol type="a">
+<li>To select your answer, click on one of the option buttons</li>
+<li>To change your answer, click the another desired option button</li>
+<li>To save your answer, you MUST click on <b>Save &amp; Next</b> </li>
+<li>To deselect a chosen answer, click on the chosen option again or click on the <b>Clear Response</b> button.</li>
+<li>To mark a question for review click on <b>Mark for Review &amp; Next</b>. <font color="red"><i>If an answer is selected for a question that is Marked for Review, the answer will be considered in the final evaluation. </i></font></li></ol></li>
+<li>To change an answer to a question, first select the question and then click on the new answer option followed by a click on the <b>Save &amp; Next</b> button.</li>
+<li>Questions that are saved or marked for review after answering will ONLY be considered for evaluation.</li></ol>
+<p><br><b><u>Navigating through sections : </u></b></p>
+<ol start="9">
+<li>Sections in this question paper are displayed on the top bar of the screen. Questions in a section can be viewed by clicking on the section name. The section you are currently viewing is highlighted.</li>
+<li>After clicking the <b>Save &amp; Next</b> button on the last question for a section, you will automatically be taken to the first question of the next section. </li>
+<li>You can move the mouse cursor over the section names to view the status of the questions for that section. </li>
+<li>You can shuffle between sections and questions anytime during the examination as per your convenience. </li></ol></div>
   </div>
   <div class="modal-footer">
     <button class="btnl sandn" data-dismiss="modal" aria-hidden="true">Back</button>

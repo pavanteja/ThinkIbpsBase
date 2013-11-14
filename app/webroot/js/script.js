@@ -227,10 +227,14 @@ var dt=year+'-'+(month.length==1?'0'+month:month)+'-'+(day.length==1?'0'+day:day
 
 $.post( "/IbpsDev/exams/submit", { ans: adata, time: atime,qids: aqid,eid:$('#ExamID').text(),pdbqid:dbqid,pqansa:qansa,sdate:$('.submit').data('sdate'),etime:dt})
   .done(function( data ) {
-    alert( "Exam Submitted: " + data );
+ //   alert( "Exam Submitted: " + data );
+ alert( "Exam submitted successfully.Visit Dashboard page to view your result." );
 	changed_flag=0;
 	window.close();
   });
+
+	
+
  } 
   
 });
@@ -274,7 +278,7 @@ case 1:$('#myModalLabel').text('Aptitude');break;
 case 2:$('#myModalLabel').text('General Awareness');break;
 case 3:$('#myModalLabel').text('Reasoning');break;
 case 4:$('#myModalLabel').text('English');break;
-case 8:$('#myModalLabel').text('Computer Awareness');break;
+case 5:$('#myModalLabel').text('Computer Awareness');break;
 }
 
 $('.allquestions').append('<tr><td>'+(index+1)+') '+$(this).data('q')+'</td></tr>');
@@ -293,4 +297,49 @@ if(!$('.cbrev').prop('checked'))
 $('.cbrev').click();
 }
 load($('.btnNext').data('nque'));
+})
+$('.btn-groupp button').click(function(){
+$('.btn-groupp button').removeClass('rbactive');
+$(this).addClass('rbactive');
+
+});
+
+$('.subexsum').on('click',function(){
+
+$('#exsumModal').css('height',$(window.top).height()).css('width',$(window.top).width());
+
+aptupdt('apt',1);
+aptupdt('qa',2); 
+aptupdt('res',3);
+aptupdt('eng',4);
+aptupdt('ca',5);
+
+	$('.examsummarytbl tr:nth-child(2) td:nth-child(2)').text(Number($('#apt-nv .badge').text())+Number($('#apt-a .badge').text())+Number($('#apt-r .badge').text())+Number($('#apt-na .badge').text()));
+	$('.examsummarytbl tr:nth-child(2) td:nth-child(6)').text($('#apt-nv .badge').text());
+	$('.examsummarytbl tr:nth-child(2) td:nth-child(3)').text($('#apt-a .badge').text());
+	$('.examsummarytbl tr:nth-child(2) td:nth-child(5)').text($('#apt-r .badge').text());
+	$('.examsummarytbl tr:nth-child(2) td:nth-child(4)').text($('#apt-na .badge').text());
+    $('.examsummarytbl tr:nth-child(3) td:nth-child(2)').text(Number($('#apt-nv .badge').text())+Number($('#apt-a .badge').text())+Number($('#apt-r .badge').text())+Number($('#apt-na .badge').text()));
+	$('.examsummarytbl tr:nth-child(3) td:nth-child(6)').text($('#qa-nv .badge').text());
+	$('.examsummarytbl tr:nth-child(3) td:nth-child(3)').text($('#qa-a .badge').text());
+	$('.examsummarytbl tr:nth-child(3) td:nth-child(5)').text($('#qa-r .badge').text());
+	$('.examsummarytbl tr:nth-child(3) td:nth-child(4)').text($('#qa-na .badge').text());
+	$('.examsummarytbl tr:nth-child(4) td:nth-child(2)').text(Number($('#apt-nv .badge').text())+Number($('#apt-a .badge').text())+Number($('#apt-r .badge').text())+Number($('#apt-na .badge').text()));
+	$('.examsummarytbl tr:nth-child(4) td:nth-child(6)').text($('#res-nv .badge').text());
+	$('.examsummarytbl tr:nth-child(4) td:nth-child(3)').text($('#res-a .badge').text());
+	$('.examsummarytbl tr:nth-child(4) td:nth-child(5)').text($('#res-r .badge').text());
+	$('.examsummarytbl tr:nth-child(4) td:nth-child(4)').text($('#res-na .badge').text());
+    $('.examsummarytbl tr:nth-child(5) td:nth-child(2)').text(Number($('#apt-nv .badge').text())+Number($('#apt-a .badge').text())+Number($('#apt-r .badge').text())+Number($('#apt-na .badge').text()));
+	$('.examsummarytbl tr:nth-child(5) td:nth-child(6)').text($('#eng-nv .badge').text());
+	$('.examsummarytbl tr:nth-child(5) td:nth-child(3)').text($('#eng-a .badge').text());
+	$('.examsummarytbl tr:nth-child(5) td:nth-child(5)').text($('#eng-r .badge').text());
+	$('.examsummarytbl tr:nth-child(5) td:nth-child(4)').text($('#eng-na .badge').text());
+    $('.examsummarytbl tr:nth-child(6) td:nth-child(2)').text(Number($('#apt-nv .badge').text())+Number($('#apt-a .badge').text())+Number($('#apt-r .badge').text())+Number($('#apt-na .badge').text()));
+	$('.examsummarytbl tr:nth-child(6) td:nth-child(6)').text($('#ca-nv .badge').text());
+	$('.examsummarytbl tr:nth-child(6) td:nth-child(3)').text($('#ca-a .badge').text());
+	$('.examsummarytbl tr:nth-child(6) td:nth-child(5)').text($('#ca-r .badge').text());
+	$('.examsummarytbl tr:nth-child(6) td:nth-child(4)').text($('#ca-na .badge').text());
+
+
+
 })

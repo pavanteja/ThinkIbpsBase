@@ -1,8 +1,41 @@
 @charset "utf-8";
+.insico
+{
+background: url(../img/buttons-sprite.png) no-repeat;
+height: 30px;
+width: 30px;
+text-align: center;
+vertical-align: middle;
+}
+.insnv
+{
+background-position: -34px -70px;
+}
+.insna
+{
+background-position: -34px 0px;
+}
+.insa
+{
+background-position: -74px 0px;
+}
+.insnar
+{
+background-position: -34px -38px;
+}
+.insar
+{
+background-position: -71px -72px;
+}
 .modal-header,.modal-footer
 {
 text-align:center !important;
 background: rgba(255, 0, 0, 0)  !important;
+}
+.rbactive
+{
+background-color: #C7DCF0 !important;
+color: #004388 !important;
 }
 #myModal,#profileModal,#insModal
 {
@@ -17,6 +50,16 @@ overflow-y: auto;
 .modal-body
 {
 max-height:10000% !important;
+}
+#exsumModal
+{
+background-color: #EEE !important;
+margin: 0 !important;
+left: 0px !important;
+toP: 45px !important;
+/*width: 65% !important;*/
+border-radius: 0 !important;
+overflow-y: auto;
 }
 .modal-backdrop
 {
