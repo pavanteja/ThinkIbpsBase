@@ -6,9 +6,9 @@
 <div class="navbar ex-nav ">
   <div class="navbar-inner">
     <ul class="nav">
-      <li ><?php echo $this->Html->link('Home', array('controller' => 'Dashboard', 'action' => 'index', $id)); ?></li>
+      <li ><?php echo $this->Html->link('Home', array('controller' => 'Dashboard')); ?></li>
       <li>
-	  <?php echo $this->Html->link('Exams', array('controller' => 'Exams', 'action' => 'index', $id)); ?></li>
+	  <?php echo $this->Html->link('Exams', array('controller' => 'Exams')); ?></li>
       <li  class="active"><a href="#">Reports</a></li>
     </ul>
   </div>

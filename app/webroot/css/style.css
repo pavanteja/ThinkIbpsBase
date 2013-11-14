@@ -1,4 +1,36 @@
 @charset "utf-8";
+.modal-header,.modal-footer
+{
+text-align:center !important;
+background: rgba(255, 0, 0, 0)  !important;
+}
+#myModal,#profileModal,#insModal
+{
+background-color: #EEE !important;
+margin: 0 !important;
+left: 28px !important;
+toP: 118px !important;
+/*width: 65% !important;*/
+border-radius: 0 !important;
+overflow-y: auto;
+}
+.modal-body
+{
+max-height:10000% !important;
+}
+.modal-backdrop
+{
+/*display:none !important;*/
+background: rgba(255, 0, 0, 0)  !important;
+}
+.modal-body .allquestions>tbody>tr>td
+{
+padding:30px 20px !important;
+}
+.pmarklbl, .nmarklbl {
+float: right;
+margin-top: -19px;
+}
 .badge {
 background: rgba(0, 0, 0, 0) !important;
 
@@ -119,7 +151,7 @@ background-color: #C7DCF0;
 border: #A9D0F5 2px solid;
 height: 35px;
 padding: 0 22px;
-width: 170px;
+width: 200px;
 }
 .btnrp {
 background-color: #C7DCF0;

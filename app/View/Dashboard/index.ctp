@@ -8,8 +8,8 @@
     <ul class="nav">
       <li  class="active"><a>Home</a></li>
       <li>
-	  <?php echo $this->Html->link('Exams', array('controller' => 'Exams', 'action' => 'index', $id)); ?></li>
-      <li><?php echo $this->Html->link('Reports', array('controller' => 'Reports', 'action' => 'index', $id)); ?></li>
+	  <?php echo $this->Html->link('Exams', array('controller' => 'Exams')); ?></li>
+      <li><?php echo $this->Html->link('Reports', array('controller' => 'Reports')); ?></li>
     </ul>
   </div>
 </div>

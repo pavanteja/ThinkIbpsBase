@@ -5,9 +5,13 @@ var tq=jsonobj.length;
 var interval;
 $('#username').text((jsonobj[0].Exam.name).replace('-1',''));
 for(var c=0;c<tq;c++)
-$('.status_ind tr').append('<td class=nv id='+c+' data-qansa=\"'+jsonobj[c].Question.answer+'\" data-dbqid=\"'+jsonobj[c].Question_exam.id+'\" data-cat=\"'+jsonobj[c].Question.categories_id+'\" data-ans=0 data-rev=0 data-time=0 data-qid=\"'+jsonobj[c].Question.id+'\" data-q=\"'+jsonobj[c].Question.question+'\" data-c1=\"'+jsonobj[c].Question.c1+'\" data-c2=\"'+jsonobj[c].Question.c2+'\" data-c3=\"'+jsonobj[c].Question.c3+'\" data-c4=\"'+jsonobj[c].Question.c4+'\" data-c5=\"'+jsonobj[c].Question.c5+'\">'+(c+1)+'</td>')
+$('.status_ind tr').append('<td class=nv id='+c+' data-qansa=\"'+jsonobj[c].Question.answer+'\" data-mark=\"'+jsonobj[c].Question.marks+'\" data-nmark=\"'+jsonobj[c].Question.negative+'\" data-dbqid=\"'+jsonobj[c].Question_exam.id+'\" data-cat=\"'+jsonobj[c].Question.categories_id+'\" data-ans=0 data-rev=0 data-time=0 data-qid=\"'+jsonobj[c].Question.id+'\" data-q=\"'+jsonobj[c].Question.question+'\" data-c1=\"'+jsonobj[c].Question.c1+'\" data-c2=\"'+jsonobj[c].Question.c2+'\" data-c3=\"'+jsonobj[c].Question.c3+'\" data-c4=\"'+jsonobj[c].Question.c4+'\" data-c5=\"'+jsonobj[c].Question.c5+'\">'+(c+1)+'</td>')
 load(1);
 $('.btnNext').on('click',function(){
+if($('.cbrev').prop('checked'))
+{
+$('.cbrev').click();
+}
 load($(this).data('nque'))
 
 })
@@ -97,7 +101,8 @@ $('#c2').html($(td).data('c2'));
 $('#c3').html($(td).data('c3'));
 $('#c4').html($(td).data('c4'));
 $('#c5').html($(td).data('c5'));
-
+$('.pmarklbl').html('Right Mark: '+$(td).data('mark')+'&nbsp;&nbsp;&nbsp;&nbsp;');
+$('.nmarklbl').html('Negative Mark: <span style=\"color:red;\">'+$(td).data('nmark')+"</span>");
 if($('#c1').html()=='')
 {
 $('#c1').parent().parent().hide();
@@ -253,9 +258,14 @@ var Qindex=1;
 $('td[data-cat='+catid+']').each(function(){$(this).html(Qindex++);})
 load(Number($($('td[data-cat='+catid+']')[0]).attr("id"))+1,1);
 }
-
+$('.prfm').on('click',function(){
+$('#profileModal').css('height',$('.q_area').height()).css('width',$('.q_area').width());
+});
+$('.insm').on('click',function(){
+$('#insModal').css('height',$('.q_area').height()).css('width',$('.q_area').width());
+});
 $('.allq').on('click',function(){
-
+$('#myModal').css('height',$('.q_area').height()).css('width',$('.q_area').width());
 $('.allquestions tr').remove();
 $('td[data-cat]:visible').each(function(index){
 switch($(this).data('cat'))
@@ -278,5 +288,9 @@ window.onbeforeunload = function() {
 };
 
 $('.revbtn').click(function(){
-
+if(!$('.cbrev').prop('checked'))
+{
+$('.cbrev').click();
+}
+load($('.btnNext').data('nque'));
 })
