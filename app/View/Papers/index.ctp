@@ -30,7 +30,14 @@
 
 <div class="span9 q_single_question q_min_height q_area">
 <div class="q_qn"><div class="pull-left">Question Number : </div><div id="qnum"></div><div id="ival" class="hide"></div><div class="nmarklbl"></div><div class="pmarklbl"></div></div>
-<table class="q_single_question_table">
+<table style="width:100%;">
+<tr>
+<td id="passagetd" style="width:55%;display:none;vertical-align: top;">
+<div id="qpassage" style="overflow-y: scroll;border-top: 1px solid #E4DFDF;">
+</div>
+</td>
+<td style="width:45%;vertical-align: top;">
+<table class="q_single_question_table" style="margin-top:0;">
 <tr class="qr qr_question"><td id="q"></td><td style="display:none;"></td></tr>
 <tr class="qr"><td><input name="ac" value=1 type="radio"></input><span id="c1"><span></td><td style="display:none;"></td></tr>
 <tr class="qr"><td><input name="ac" value=2 type="radio"></input><span id="c2"><span></td><td style="display:none;"></td></tr>
@@ -39,6 +46,10 @@
 <tr class="qr"><td><input name="ac" value=5 type="radio"></input><span id="c5"><span></td><td style="display:none;"></td></tr>
 
 </table>
+</td>
+</tr>
+</table>
+
 <div class="q_single_question bg" style="position: absolute;bottom: 0;width: 98%;">
 <table><tr><td>
 <div class="cb_lable"><input type="checkbox" class="cbrev" name="rev" /><button class="btnl revbtn" />Mark for Review & Next</button></div></td><td>

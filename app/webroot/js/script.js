@@ -5,7 +5,10 @@ var tq=jsonobj.length;
 var interval;
 $('#username').text((jsonobj[0].Exam.name).replace('-1',''));
 for(var c=0;c<tq;c++)
-$('.status_ind tr').append('<td class=nv id='+c+' data-qansa=\"'+jsonobj[c].Question.answer+'\" data-mark=\"'+jsonobj[c].Question.marks+'\" data-nmark=\"'+jsonobj[c].Question.negative+'\" data-dbqid=\"'+jsonobj[c].Question_exam.id+'\" data-cat=\"'+jsonobj[c].Question.categories_id+'\" data-ans=0 data-rev=0 data-time=0 data-qid=\"'+jsonobj[c].Question.id+'\" data-q=\"'+jsonobj[c].Question.question+'\" data-c1=\"'+jsonobj[c].Question.c1+'\" data-c2=\"'+jsonobj[c].Question.c2+'\" data-c3=\"'+jsonobj[c].Question.c3+'\" data-c4=\"'+jsonobj[c].Question.c4+'\" data-c5=\"'+jsonobj[c].Question.c5+'\">'+(c+1)+'</td>')
+{
+console.log(jsonobj[c].Question.passage);
+$('.status_ind tr').append('<td class=nv id='+c+' data-ppid=\"'+jsonobj[c].Question.pqid+'\" data-passage=\"'+jsonobj[c].Question.passage+'\" data-qansa=\"'+jsonobj[c].Question.answer+'\" data-mark=\"'+jsonobj[c].Question.marks+'\" data-nmark=\"'+jsonobj[c].Question.negative+'\" data-dbqid=\"'+jsonobj[c].Question_exam.id+'\" data-cat=\"'+jsonobj[c].Question.categories_id+'\" data-ans=0 data-rev=0 data-time=0 data-qid=\"'+jsonobj[c].Question.id+'\" data-q=\"'+jsonobj[c].Question.question+'\" data-c1=\"'+jsonobj[c].Question.c1+'\" data-c2=\"'+jsonobj[c].Question.c2+'\" data-c3=\"'+jsonobj[c].Question.c3+'\" data-c4=\"'+jsonobj[c].Question.c4+'\" data-c5=\"'+jsonobj[c].Question.c5+'\">'+(c+1)+'</td>')
+}
 load(1);
 $('.btnNext').on('click',function(){
 if($('.cbrev').prop('checked'))
@@ -85,6 +88,23 @@ $('#qnum').text(typeof j==="undefined"?i:j);
 i=Number(i);
 $('#ival').text(i);
 var td=$('.status_ind td').eq(i-1);
+//console.log(String($(td).data('passage')).length);
+if($(td).data('passage')!="null" && String($(td).data('passage')).length>0  )
+{
+if($(td).data('passage')==1)
+{
+$('#qpassage').html($('.status_ind').find('td[data-qid='+$(td).data('ppid')+']').data('passage'));
+}else
+{
+$('#qpassage').html($(td).data('passage'));
+}
+$('#passagetd').show();
+}
+else
+{
+$('#passagetd').hide();
+$('#qpassage').html('');
+}
 
 if(Number($(td).data('ans'))>0 &&Number($(td).data('ans'))<6)
 {
@@ -244,7 +264,8 @@ $(window).resize(function(){if($(window.top).height()>525){var shi=$(window.top)
 if(sh>525)
 {
 $('.q_min_height').height(sh-200);
-$('.q_palette').height(sh-340)
+$('.q_palette').height(sh-340);
+$('#qpassage').height(sh-305);
 }
 
 $('.apt').on('click',function(){showCat(1)})
@@ -319,22 +340,22 @@ aptupdt('ca',5);
 	$('.examsummarytbl tr:nth-child(2) td:nth-child(3)').text($('#apt-a .badge').text());
 	$('.examsummarytbl tr:nth-child(2) td:nth-child(5)').text($('#apt-r .badge').text());
 	$('.examsummarytbl tr:nth-child(2) td:nth-child(4)').text($('#apt-na .badge').text());
-    $('.examsummarytbl tr:nth-child(3) td:nth-child(2)').text(Number($('#apt-nv .badge').text())+Number($('#apt-a .badge').text())+Number($('#apt-r .badge').text())+Number($('#apt-na .badge').text()));
+    $('.examsummarytbl tr:nth-child(3) td:nth-child(2)').text(Number($('#qa-nv .badge').text())+Number($('#qa-a .badge').text())+Number($('#qa-r .badge').text())+Number($('#qa-na .badge').text()));
 	$('.examsummarytbl tr:nth-child(3) td:nth-child(6)').text($('#qa-nv .badge').text());
 	$('.examsummarytbl tr:nth-child(3) td:nth-child(3)').text($('#qa-a .badge').text());
 	$('.examsummarytbl tr:nth-child(3) td:nth-child(5)').text($('#qa-r .badge').text());
 	$('.examsummarytbl tr:nth-child(3) td:nth-child(4)').text($('#qa-na .badge').text());
-	$('.examsummarytbl tr:nth-child(4) td:nth-child(2)').text(Number($('#apt-nv .badge').text())+Number($('#apt-a .badge').text())+Number($('#apt-r .badge').text())+Number($('#apt-na .badge').text()));
+	$('.examsummarytbl tr:nth-child(4) td:nth-child(2)').text(Number($('#res-nv .badge').text())+Number($('#res-a .badge').text())+Number($('#res-r .badge').text())+Number($('#res-na .badge').text()));
 	$('.examsummarytbl tr:nth-child(4) td:nth-child(6)').text($('#res-nv .badge').text());
 	$('.examsummarytbl tr:nth-child(4) td:nth-child(3)').text($('#res-a .badge').text());
 	$('.examsummarytbl tr:nth-child(4) td:nth-child(5)').text($('#res-r .badge').text());
 	$('.examsummarytbl tr:nth-child(4) td:nth-child(4)').text($('#res-na .badge').text());
-    $('.examsummarytbl tr:nth-child(5) td:nth-child(2)').text(Number($('#apt-nv .badge').text())+Number($('#apt-a .badge').text())+Number($('#apt-r .badge').text())+Number($('#apt-na .badge').text()));
+    $('.examsummarytbl tr:nth-child(5) td:nth-child(2)').text(Number($('#eng-nv .badge').text())+Number($('#eng-a .badge').text())+Number($('#eng-r .badge').text())+Number($('#eng-na .badge').text()));
 	$('.examsummarytbl tr:nth-child(5) td:nth-child(6)').text($('#eng-nv .badge').text());
 	$('.examsummarytbl tr:nth-child(5) td:nth-child(3)').text($('#eng-a .badge').text());
 	$('.examsummarytbl tr:nth-child(5) td:nth-child(5)').text($('#eng-r .badge').text());
 	$('.examsummarytbl tr:nth-child(5) td:nth-child(4)').text($('#eng-na .badge').text());
-    $('.examsummarytbl tr:nth-child(6) td:nth-child(2)').text(Number($('#apt-nv .badge').text())+Number($('#apt-a .badge').text())+Number($('#apt-r .badge').text())+Number($('#apt-na .badge').text()));
+    $('.examsummarytbl tr:nth-child(6) td:nth-child(2)').text(Number($('#ca-nv .badge').text())+Number($('#ca-a .badge').text())+Number($('#ca-r .badge').text())+Number($('#ca-na .badge').text()));
 	$('.examsummarytbl tr:nth-child(6) td:nth-child(6)').text($('#ca-nv .badge').text());
 	$('.examsummarytbl tr:nth-child(6) td:nth-child(3)').text($('#ca-a .badge').text());
 	$('.examsummarytbl tr:nth-child(6) td:nth-child(5)').text($('#ca-r .badge').text());
