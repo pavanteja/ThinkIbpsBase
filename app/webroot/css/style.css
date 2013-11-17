@@ -1,4 +1,11 @@
 @charset "utf-8";
+.top-flash
+{
+text-align: center;
+margin: 0 !important;
+border-radius: 0 !important;
+border-bottom: 1px solid #C9E2B4;
+}
 .insico
 {
 background: url(../img/buttons-sprite.png) no-repeat;
@@ -444,13 +451,18 @@ font-family: cursive;
 {
 width: 480px;
 margin: 0 auto;
-height: 400px;
+/*height: 400px;*/
 box-shadow: 0 0 5px #333;
 }
 .form-horizontal
 {
-padding-top: 85px;
+/*padding-top: 85px;*/
 margin-left: -8px;
+padding: 15px;
+}
+.form-horizontal input[type=text],.form-horizontal input[type=password],.form-horizontal input[type=email],.form-horizontal input[type=tel]
+{
+border-radius:0;
 }
 .frmLoginTitle
 {
@@ -660,13 +672,13 @@ height:400px;
 {
 width: 575px;
 margin: 0 auto;
-height: 440px;
+/*height: 440px;*/
 box-shadow: 0 0 5px #333;
 background: #FFF;
 }
 .form-horizontal
 {
-padding-top: 90px;
+/*padding-top: 90px;*/
 margin-left: 20px;
 }
 .logoback

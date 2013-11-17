@@ -17,6 +17,27 @@ public $validate = array(
                 'message' => 'A password is required'
             )
         )
+		,
+        'firstname' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A Firstname is required'
+            )
+        )
+		,
+        'email' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A email is required'
+            )
+        )
+		,
+        'phone' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A phone is required'
+            )
+        )
     );
 
 

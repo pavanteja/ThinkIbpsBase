@@ -48,7 +48,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		
 		
 
-			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash('flash', array('element' => 'success')); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		
