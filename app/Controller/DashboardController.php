@@ -41,6 +41,7 @@ $this->set('excdp',($completedX/$totalX)*100);
 $this->set('excd',($completedX));
 $this->set('perf',$this->Exam->find('first',array('conditions' => array('Exam.users_id =' => $id,'Exam.marks <>'=>null),'fields'=>array('AVG(performance) as avgp'))));
 $this->set('catreport',$catreport);
+$this->set('username',$this->Auth->User('username'));
 }
 
 

@@ -16,12 +16,12 @@ class UsersController extends AppController
         $this->set('users', $this->paginate());
     }
 
-    public function view($id = null) {
-        $this->User->id = $id;
+    public function view() {
+        $this->User->id = $this->Auth->user('id');
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
-        $this->set('user', $this->User->read(null, $id));
+        $this->set('user',  $this->Auth->user());
     }
 
     public function register() {
@@ -35,20 +35,21 @@ class UsersController extends AppController
         }
     }
 
-    public function edit($id = null) {
-        $this->User->id = $id;
+    public function edit($id=null) {
+        $this->User->id = $id;//$this->Auth->user('id');
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                return $this->redirect(array('action' => 'login'));
+                //return $this->redirect(array('action' => 'login'));
+				return $this->redirect(array('controller' => 'dashboard','action' => 'index'));
             }
             $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
         } else {
-            $this->request->data = $this->User->read(null, $id);
-            $this->request->data['User']['password'];
+            $this->request->data = $this->User->read(null, $id);//$this->Auth->user('id'));
+          //  $this->request->data['User']['password'];
         }
     }
 

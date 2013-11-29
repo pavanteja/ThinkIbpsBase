@@ -2,7 +2,19 @@
 <div class="container">
  
 <div class="logo"></div>
-<?php echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout'),array('class' => 'btn btn-small logout')); ?>
+
+<div class="btn-group btn-small logout">
+  <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+   <i class="icon-user"></i> <?php echo $username ?>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" style="margin-left: 10px;margin-top: 0;">
+	<li><?php echo $this->Html->link('<i class=icon-tags></i> Profile', array('controller' => 'users', 'action' => 'view'),array('escape' => false)); ?></li>
+	<li><?php echo $this->Html->link('<i class=icon-edit></i> Edit', array('controller' => 'users', 'action' => 'edit'),array('escape' => false)); ?></li>
+    <li><?php echo $this->Html->link('<i class=icon-share-alt></i> Logout', array('controller' => 'users', 'action' => 'logout'),array('escape' => false)); ?></li>
+  </ul>
+</div>
+
 <div class="navbar ex-nav ">
   <div class="navbar-inner">
     <ul class="nav">

@@ -18,7 +18,7 @@ public function beforeFilter() {
 	{
 	$this->set('id',$id);
 	$this->Exam->recursive = -1;
-		$this->set('exams',$this->Exam->find('all',array('conditions' => array('Exam.users_id =' => $id),'order' => array('Exam.users_id' => 'desc'))));
+		$this->set('exams',$this->Exam->find('all',array('conditions' => array('Exam.users_id =' => $id),'order' => array('Exam.users_id' => 'desc'),'limit' => 2)));
 		}
 	}
 	
